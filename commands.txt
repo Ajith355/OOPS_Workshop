@@ -1,0 +1,4 @@
+java -cp "lib/*" DB_test.java
+
+
+
