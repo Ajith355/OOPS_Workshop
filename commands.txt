@@ -2,3 +2,71 @@ java -cp "lib/*" DB_test.java
 
 
 
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS testdb;
+USE testdb;
+
+-- Drop the table if it already exists to start fresh
+DROP TABLE IF EXISTS students;
+
+-- Create the students table
+CREATE TABLE students (
+    roll_no INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    department VARCHAR(50)
+);
+
+-- Insert some sample data into the students table
+INSERT INTO students (roll_no, name, age, department) VALUES
+(101, 'Alice Smith', 20, 'Computer Science'),
+(102, 'Bob Johnson', 21, 'Mechanical Engineering'),
+(103, 'Charlie Brown', 19, 'Electrical Engineering'),
+(104, 'Diana Prince', 22, 'Computer Science');
+
+
+
+
+
+-- Create the user table
+CREATE TABLE user (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Roll_num VARCHAR(20) UNIQUE,
+    Mark DECIMAL(5, 2),
+    -- Added these columns based on the Login_page_.java file's query for Login_page_
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+-- Insert some sample data into the user table
+INSERT INTO user (Name, Roll_num, Mark, username, password) VALUES
+('Peter Jones', 'S101', 85.50, 'peterj', 'tiger'),
+('Mary Jane', 'S102', 92.00, 'maryj', 'tiger'),
+('John Doe', 'S103', 78.75, 'johnd', 'tiger');
+
+
+
+
+
+-- Drop the table if it already exists to start fresh
+DROP TABLE IF EXISTS users;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+-- Insert some sample data into the users table
+INSERT INTO users (username, password) VALUES
+('admin', '12345'),
+('testuser', 'password'),
+('root', 'tiger'); -- Added based on other files, might be useful
+
+
+
+
+
+
